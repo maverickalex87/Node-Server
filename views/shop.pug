@@ -16,20 +16,19 @@ html(lang="en")
           li.main-header_item
             a(href="/admin/add-product") Add Product
     main
-      <div class="grid">
-      <article class="card product-item">
-        <header class="card_header">
-          <h1 class="product_title">Velo</h1>
-        </header>
-        <div class="card_image">
-          <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
-        </div>
-        <div class="card_content">
-          <h2 class="product_price">129$</h2>
-          <p class="product_description">description...</p>
-        </div>
-        <div class="card_actions">
-          <button class="btn">Add to Cart</button>
-        </div>
-      </article>
-      </div>
+      if prods.length  > 0
+        .grid
+          each product in prods
+            article.card.product-item
+              .header.card_header
+                h1.product_title #{product.title}
+
+              div.card_image
+                img(src=product.imageUrl, alt=product.title)
+              div.card_content
+                h2.product_price #{product.price}
+                p.product_description #{product.description}
+              .card_actions
+                button.btn Add to Cart
+      else
+        h1 No Products Found

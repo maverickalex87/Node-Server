@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ pageTitle }}</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/forms.css">
+  <link rel="stylesheet" href="/css/product.css">
+
+</head>
+
+<body>
+  <header class="main-header">
+    <nav class="main-header_nav">
+      <ul class="main-header_item_list">
+        <li class="main-header_item"><a class="active" href="/">Shop</a></li>
+        <li class="main-header_item"><a href="/admin/add-product">Add Product</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {{#if hasProducts }}
+    <div class="grid">
+      {{#each prods as |product|}}
+      <article class="card product-item">
+        <div class="header card_header">
+          <h1 class="product_title">{{this.title}}</h1>
+        </div>
+        <div class="card_image">
+          <img src="{{this.imageUrl}}" alt="{{this.title}}">
+        </div>
+        <div class="card_content">
+          <h2 class="product_price">{{this.price}}</h2>
+          <p class="product_description">{{this.description}}</p>
+        </div>
+        <div class="card_actions">
+          <button class="btn">Add to Cart</button>
+        </div>
+      </article>
+      {{/each}}
+    </div>
+    {{else}}
+    <h1>No Products Found</h1>
+    {{/if}}
+  </main>
+</body>
+
+</html>

@@ -2,51 +2,26 @@
   width: 20rem;
   max-width: 90%;
   margin: auto;
-}
-
-.form-control input {
   display: block;
-  width: 100%;
-  border: 1px solid hsl(56, 52%, 45%);
-  border-radius: 2px;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  font: inherit;
 }
-
-button {
-  font: inherit;
-  background-color: rgb(246, 246, 240);
-  color: #063a7d;
-  border: 2px solid hsl(56, 52%, 45%);
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover,
-button:active {
-  background-color: #063a7d;
-  color: white;
-}
-
-
 
 .product-item {
   width: 20rem;
   max-width: 95%;
+  margin: 1rem;
 }
 
-.product_title {
+.product__title {
   font-size: 1.2rem;
   text-align: center;
 }
 
-.product_price {
+.product__price {
   text-align: center;
   color: #4d4d4d;
   margin-bottom: 0.5rem;
 }
 
-.product_description {
+.product__description {
   text-align: center;
 }

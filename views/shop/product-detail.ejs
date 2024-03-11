@@ -4,6 +4,24 @@
 
   <body>
     <%- include('../includes/navigation.ejs') %>
-      main>
-      <p>Cart detail</p>
+      <main class="centered">
+        <div class="card-details">
+          <h1>
+            <%= product.title %>
+          </h1>
+          <hr>
+          <div>
+            <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+          </div>
+          <h2>
+            <%= product.price %>€
+          </h2>
+          <p>
+            <%= product.description %>
+          </p>
+          <form action="/add-to-cart" method="POST">
+            <input type="hidden" name="productId" value="<%= product.id %>">
+            <button class="btn">Add to Cart</button>
+        </div>
+      </main>
       <%- include('../includes/end.ejs') %>

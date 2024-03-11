@@ -1,11 +1,11 @@
-<%- include('includes/head.ejs') %>
+<%- include('../includes/head.ejs') %>
   <link rel="stylesheet" href="/css/forms.css">
   <link rel="stylesheet" href="/css/product.css">
 
   </head>
 
   <body>
-    <%- include('includes/navigation.ejs') %>
+    <%- include('../includes/navigation.ejs') %>
       <main>
         <% if (prods.length>0) { %>
           <div class="grid">
@@ -22,13 +22,16 @@
                 <div class="card_content">
                   <h2 class="product_price">
                     <%= product.price %>
+                      €
                   </h2>
                   <p class="product_description">
                     <%= product.description %>
                   </p>
                 </div>
                 <div class="card_actions">
-                  <button class="btn">Add to Cart</button>
+                  <form action="/add-to-cart/pruductId" method="POST">
+                    <a href="/orders" class="btn">Add To Cart</a>
+                  </form>
                 </div>
               </article>
               <% } %>
@@ -37,4 +40,4 @@
             <h1>No products found</h1>
             <% } %>
       </main>
-      <%- include('includes/end.ejs') %>
+      <%- include('../includes/end.ejs') %>

@@ -3,9 +3,9 @@ const path = require('path');
 
 const p = path.join(
   path.dirname(require.main.filename),
-    'data',
-    'cart.json'
-  );
+  'data',
+  'cart.json'
+);
 
 module.exports = class Cart {
   static addProduct(id, productPrice) {
@@ -45,7 +45,10 @@ module.exports = class Cart {
       }
       const updatedCart = { ...JSON.parse(fileContent) };
       const product = updatedCart.products.find(prod => prod.id === id);
-      const productQty = product?.qty;
+      if (!product) {
+          return;
+      }
+      const productQty = product.qty;
       updatedCart.products = updatedCart.products.filter(
         prod => prod.id !== id
       );
@@ -68,4 +71,4 @@ module.exports = class Cart {
       }
     });
   }
-}
+};

@@ -9,8 +9,7 @@
     <%= pageTitle %>
   </title>
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/product.css">
-  <link rel="stylesheet" href="/css/forms.css">
+  <link rel="stylesheet" href="/css/cart.css">
 </head>
 
 <body>
@@ -21,14 +20,14 @@
           <% products.forEach(p => { %>
             <li class="cart__item">
               <h1>
-                <%= p.title %> (<%= p.qty %>)
+                <%= p.title %>
               </h1>
               <h2>
                 Quantity: <%= p.quantity %>
               </h2>
               <form action="/cart-delete-item" method="POST">
                 <input type="hidden" value="<%= p._id %>" name="productId">
-                <button class="btn" type="submit">Delete</button>
+                <button class="btn danger" type="submit">Delete</button>
               </form>
             </li>
             <% }) %>

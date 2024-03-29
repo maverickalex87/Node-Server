@@ -55,7 +55,9 @@ class User {
     .toArray()
     .then(products => {
       return products.map(p => {
-        return {...p, quantity: this.cart.items.find(i => {
+        return {
+          ...p,
+          quantity: this.cart.items.find(i => {
             return i.productId.toString() === p._id.toString();
           }).quantity
         }
@@ -63,6 +65,7 @@ class User {
 
     })
   }
+
 
   deleteItemFromCart(productId) {
     const updatedCartItems = this.cart.items.filter(item => {
@@ -84,7 +87,13 @@ class User {
     .collection('orders')
     .insertOne(this.cart)
     .then(result => {
-      
+      this.cart = {items: []};
+      return db
+    .collection('users')
+    .updateOne(
+      {_id: new ObjectId(this._id) },
+      {$set: {cart: {items: [] } } }
+    );
     })
   }
 

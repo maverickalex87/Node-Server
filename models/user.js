@@ -5,7 +5,7 @@ const ObjectId = mongodb.ObjectId;
 
 class User {
   constructor(username, email, cart, id) {
-    this.username = username;
+    this.name = username;
     this.email = email;
     this.cart = cart;
     this._id = id;
@@ -112,7 +112,7 @@ class User {
     const db = getDb();
     return db
     .collection('users')
-    .findOne({_id: new mongodb.BSON.ObjectId(userId)})
+    .findOne({_id: new mongodb.ObjectId(userId)})
     .then(user => {
       console.log(user);
       return user;

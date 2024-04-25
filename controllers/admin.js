@@ -65,7 +65,11 @@ exports.postEditProduct = (req, res, next) => {
 
 
     Product.findById(prodId).then(product => {
-      product.save()
+      product.title = updatedTitle;
+      product.price = updatedPrice;
+      product.description = updatedDesc;
+      product.imageUrl = updatedImageUrl;
+      return product.save();
     })
     .then(result => {
       console.log('UPDATED PRODUCT!');

@@ -1,6 +1,6 @@
-const mogoose = require('mongoose');
+const mongoose = require('mongoose');
 
-const Schema = mogoose.Schema;
+const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
   title: {
@@ -20,6 +20,8 @@ const productSchema = new Schema({
     required: true
   }
 });
+
+module.exports = mongoose.model('Product', productSchema);
 
 
 

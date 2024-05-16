@@ -1,3 +1,5 @@
+const User = require('../models/user');
+
 exports.getLogin = (req, res, next) => {
   // const isLoggedIn = req.get('Cookie').split("=")[1].split('D')[1] === 'true';
   console.log(req.session.isLoggedIn);

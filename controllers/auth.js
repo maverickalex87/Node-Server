@@ -10,6 +10,18 @@ exports.getLogin = (req, res, next) => {
 };
 
 exports.postLogin = (req, res, next) => {
-  req.session.isLoggedIn = true; // Access the session object using 'req.session'
-  res.redirect('/');
+  User.findById('663a0c117730982c1e698f37')
+  .then(user => {
+    req.session.isLoggedIn = true; // Access the session object using 'req.session'
+    req.session.user = user;
+    res.redirect('/');
+  })
+  .catch(err => console.log(err));
+};
+
+exports.postLogout = (req, res, next) => {
+  req.session.destroy(err => {
+    console.log(err);
+    res.redirect('/');
+  });
 };

@@ -4,7 +4,7 @@ exports.getLogin = (req, res, next) => {
   res.render('auth/login', {
     path: '/login',
     pageTitle: 'Login',
-    isAuthenticated: true
+    isAuthenticated: false
   });
 };
 
@@ -20,8 +20,6 @@ exports.postLogin = (req, res, next) => {
     })
     .catch(err => console.log(err));
 };
-
-
 
 exports.postLogout = (req, res, next) => {
   req.session.destroy(err => {

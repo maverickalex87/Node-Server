@@ -47,9 +47,6 @@ exports.getIndex = (req, res, next) => {
 };
 
 exports.getCart = (req, res, next) => {
-  if (!req.session.isLoggedIn) {
-    return res.redirect('/login');
-  }
   req.user
     .populate('cart.items.productId')
     .then(user => {
@@ -114,9 +111,6 @@ exports.postOrder = (req, res, next) => {
 };
 
 exports.getOrders = (req, res, next) => {
-  if (!req.session.isLoggedIn) {
-    return res.redirect('/login');
-  }
   Order.find({ 'user.userId': req.user._id })
     .then(orders => {
       res.render('shop/orders', {

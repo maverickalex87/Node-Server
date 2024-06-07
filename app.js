@@ -6,16 +6,23 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
+
+
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 const MONGODB_URI = 'mongodb+srv://alex:Casandra87@cluster0.c38dv6i.mongodb.net/shop?retryWrites=true&w=majority&appName=Cluster0';
 
 
 const app = express();
+
+
+
 const store = new MongoDBStore({
   uri: MONGODB_URI,
   collection: 'sessions'
 });
+
+
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
